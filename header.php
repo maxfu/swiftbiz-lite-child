@@ -20,7 +20,24 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<?php wp_head(); ?>
 </head>
-  <body <?php body_class(); ?> >
+  <body <?php body_class(); ?> >	<?php global $maxwell_options; ?>
+	<style type="text/css">
+	#main #featured-box {
+	    margin-top: -83px;
+	    padding-top: 83px;
+			margin-bottom: 100px;
+	}
+	#main #front-page-content {
+		margin-top: -83px;
+		padding-top: 83px;
+	}
+	<?php if( $maxwell_options['fluid_container'] == 'on' ) : ?>
+	#main #front-page-content.swiftbiz-section .container {
+		width: 100%;
+	}
+	<?php endif; ?>
+	</style>
+
 	<div id="wrapper" class="skepage">
 		<!-- search-strip -->
 		<div class="hsearch" >
@@ -36,8 +53,8 @@
 			<div id="header" class="skehead-headernav clearfix">
 				<div class="glow">
 					<div id="skehead">
-						<div class="container">      
-							<div class="row-fluid header-inner">      
+						<div class="container">
+							<div class="row-fluid header-inner">
 								<!-- #logo -->
 								<div id="logo" class="span4">
 									<?php if( get_theme_mod('swiftbiz_lite_logo_img') ){ ?>
@@ -54,21 +71,21 @@
 									<?php } ?>
 								</div>
 								<!-- #logo -->
-								
-								<!-- .top-nav-menu --> 
+
+								<!-- .top-nav-menu -->
 								<div class="top-nav-menu span8">
 									<!-- Header Search Icon// -->
 									<?php if( get_theme_mod('swiftbiz_lite_headserach', 'on') == 'on' ) { ?>
-									<div class="top-search">						
+									<div class="top-search">
 										<a href="javascript:void(0);" class="strip-icon search-strip" title="<?php _e('search','swiftbiz-lite'); ?>"><i class="fa fa-search"></i></a>
 									</div>
 									<?php } ?>
 									<!-- Header Search Icon -->
 
 									<div class="top-nav-menu">
-										<?php 
+										<?php
 											if( has_nav_menu( 'Header' ) ) {
-												wp_nav_menu(array( 'container_class' => 'swiftbiz-menu', 'container_id' => 'skenav', 'menu_id' => 'menu-main','theme_location' => 'Header' )); 
+												wp_nav_menu(array( 'container_class' => 'swiftbiz-menu', 'container_id' => 'skenav', 'menu_id' => 'menu-main','theme_location' => 'Header' ));
 											} else {
 										?>
 										<div class="swiftbiz-menu" id="skenav">
@@ -79,19 +96,19 @@
 										<?php } ?>
 									</div>
 								</div>
-								<!-- .top-nav-menu --> 
+								<!-- .top-nav-menu -->
 							</div>
 						</div>
 					</div>
 					<!-- #skehead -->
 				</div>
-				<!-- glow --> 
+				<!-- glow -->
 			</div>
 			<div class="header-clone"></div>
 		</div>
 	<!-- #header -->
-	
+
 	<!-- header image section -->
   	<?php get_template_part( 'includes/front', 'bgimage-section' ); ?>
-	
+
 	<div id="main" class="clearfix">
